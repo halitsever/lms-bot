@@ -6,7 +6,7 @@
 <h1 align="center">
 Lms Otomatik Ders
 <br>
- 
+<img src="https://img.shields.io/codefactor/grade/github/murathasev/lms-otomatik-ders">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue">
 </h1> 
 
@@ -38,7 +38,7 @@ Kurulum ve çalıştırmadan önce dersleri, derslerin saatlerini ve derslerin g
  {"adi":"Fizik (2020-2021 Uzaktan Eğitim Güz Dönemi)", "saat":"18:49", "gunu":"Salı" },
  {"adi":"Matematik (2020-2021 Uzaktan Eğitim Güz Dönemi)", "saat":"14:12", "gunu":"Pazartesi"},
  {"adi":"Türk Dili ve Edebiyatı (2020-2021 Uzaktan Eğitim Güz Dönemi)", "saat":"14:12", "gunu":"Cumartesi"},
- {"adi":"Yabancı Dil-I ( Birleştirilmiş ) (2020-2021 Uzaktan Eğitim Güz Dönemi)"}
+ {"adi":"Yabancı Dil-I (2020-2021 Uzaktan Eğitim Güz Dönemi)"}
 
 ````
 
