@@ -1,0 +1,20 @@
+{
+  "site": "<link>",
+  "anliklog": true,
+  "kullanicibilgi": {
+    "ogrencino": "<veri>",
+    "ogrencisifre": "<veri2>"
+  },
+  "dersler": [
+    {
+      "adi": "<ders_tam_adi>",
+      "saat": "<saat>",
+      "gunu": "<gun>"
+    },
+    {
+      "adi": "<ders_tam_adi>",
+      "saat": "<saat>",
+      "gunu": "<gun>"
+    }
+  ]
+}
