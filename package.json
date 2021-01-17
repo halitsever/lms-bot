@@ -1,0 +1,32 @@
+{
+  "name": "otomatik-ders",
+  "version": "0.0.1",
+  "description": "Derse sizin yerinize katılım sağlayan program",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "events": "^3.2.0",
+    "express": "^4.17.1",
+    "figlet": "^1.5.0",
+    "find-chrome-version": "^2.1.1",
+    "selenium-webdriver": "^3.6.0",
+    "until": "^0.1.1"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "#"
+  },
+  "license": "MIT",
+  "keywords": [
+    "perculus",
+    "selenium",
+    "nodejs"
+  ],
+  "devDependencies": {
+    "chromedriver": "^87.0.4"
+  }
+}
