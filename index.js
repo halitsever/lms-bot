@@ -8,7 +8,7 @@ const { getHeapSpaceStatistics } = require("v8");
 /*  
 ==============================Modül==============================
 */
-const { Hesap, Ders, Aplikasyon } = require("./lib/");
+const { Ders, Aplikasyon } = require("./lib/");
 /*  
 ==============================Modül==============================
 */
