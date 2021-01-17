@@ -1,10 +1,7 @@
 /*  
 ==============================Util==============================
 */
-const ayarlar = require("./veri/ayarlar.json");
-const { S_IFREG } = require("constants");
 const zamanlama = require("util").promisify(setTimeout);
-const { getHeapSpaceStatistics } = require("v8");
 /*  
 ==============================Modül==============================
 */
