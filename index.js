@@ -1,8 +1,4 @@
-/*  
-==============================Util==============================
-*/
-const zamanlama = require("util").promisify(setTimeout);
-/*  
+/*
 ==============================Modül==============================
 */
 const { Ders, Aplikasyon } = require("./lib/");
