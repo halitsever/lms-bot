@@ -58,7 +58,7 @@ eğer başka bir ders eklemek isterseniz
 {"adi":"b", "saat":"01:00", "gunu":"Pazar"}, Virgül var
 {"adi":"c", "saat":"02:00", "gunu":"Pazar"} Son satırda virgül yok
 ````
-Eğer nasıl yapılacağından hala emin değilseniz proje içerisindeki [ornek_sema.json](https://google.com) 'a bakabilirsiniz.
+Eğer nasıl yapılacağından hala emin değilseniz proje içerisindeki [ornek_sema.json](https://github.com/murathasev/lms-otomatik-ders/blob/main/veri/ornek_sema.json) 'a bakabilirsiniz.
 
 ## Windows 
 Şuanlık yok, geliştirme sürecine destek vermek istiyorsanız forklayıp electron/formapplication ile bir gui hazırlayarak işe başlayabilirsiniz :) Sonra merge isteği atarsınız ve projeye dahil olursunuz.
