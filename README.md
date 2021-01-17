@@ -3,9 +3,12 @@
  <img alt="lms otomatik ders" src="https://i.ibb.co/sjPG3ZV/Yeni-Proje.png">
 </p>
 
-<center ><h1>
+<h1 align="center">
 Lms Otomatik Ders
-</h1> </center>
+<br>
+ 
+<img src="https://img.shields.io/badge/Version-0.0.1-blue">
+</h1> 
 
 ## Sorumluluk
 Bu proje eğitim adına daha efektif düşünmek amacıyla yapılmıştır, kullanılmasından dolayı oluşabilecek sorumluluk yine kullanıcının kendisindedir.
