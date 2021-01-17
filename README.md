@@ -93,7 +93,7 @@ Ardından deploy sekmesine tekrar girin ve tekrardan deploy app diyin, artık ü
 
 ## Notlar
 Derse bağlantı yaşandıktan sonra siz tekrardan girmeyin, sistem oturumunuzu iptal ediyor ve sizi sistemden atıyor. <br>
-Kullanılan teknolojiler: Node.js<br>Selenium<br>Chrome Web Driver<br>
+Kullanılan teknolojiler: <br>Node.js<br>Selenium<br>Chrome Web Driver<br>
 
 <p align="center">;)</p>
 <p align="center">
