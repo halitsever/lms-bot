@@ -6,7 +6,7 @@
 <h1 align="center">
 Lms Otomatik Ders
 <br>
-<img href="https://www.codefactor.io/repository/github/murathasev/lms-otomatik-ders/issues" src="https://img.shields.io/codefactor/grade/github/murathasev/lms-otomatik-ders">
+<a href="https://www.codefactor.io/repository/github/murathasev/lms-otomatik-ders/issues"><img src="https://img.shields.io/codefactor/grade/github/murathasev/lms-otomatik-ders"></a>
 <img src="https://img.shields.io/badge/Version-0.0.1-blue">
 </h1> 
 
