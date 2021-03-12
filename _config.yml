@@ -1,2 +1,5 @@
-theme: jekyll-theme-minimal
+title: LMS Otomatik Ders | Otomatik yerinize derse giren yazılım
+logo: app.png
+description: LMS Otomatik Ders sizin yerinize canlı derslere katılır, bu sayede sınav notunuzdan eksi almanın önüne geçersiniz.
 show_downloads: true
+theme: jekyll-theme-minimal
