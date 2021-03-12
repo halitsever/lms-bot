@@ -1,0 +1,20 @@
+{
+  "site": "",
+  "anliklog": true,
+  "kullanicibilgi": {
+    "ogrencino": "",
+    "ogrencisifre": ""
+  },
+  "dersler": [
+    {
+      "adi": "",
+      "saat": "",
+      "gunu": ""
+    },
+    {
+      "adi": "",
+      "saat": "",
+      "gunu": ""
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="icerik-ic-dersekle" id="icerik-ic-dersekle">
+      <center>
+        <br /><br />
+        <form>
+          <h1>Ders adı:</h1>
+          <input type="text" id="dersadi" name="dersadi" />
+          <h1>Ders saati:</h1>
+          <input type="text" id="dersvakti" name="dersvakti" />
+          <h1>Ders günü:</h1>
+          <input type="text" id="dersgunu" name="dersgunu" />
+          <input
+            onclick="dersekle_input_verigir()"
+            type="submit"
+            value="Ders ekle"
+            class="buton"
+            id="buton"
+          />
+        </form>
+      </center>
+    </div>
+    <div style="clear:left;"></div>
+  </body>
+  <script src="./script/main.js"></script>
+</html>

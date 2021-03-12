@@ -1,0 +1,108 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  border-radius: 3px;
+  border: none 0px;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+body {
+  background-color: #ecf0f1;
+  color: #34495e;
+  padding: 0px;
+  border-radius: 10px;
+}
+.sol {
+  height: 530px;
+  background: #485563; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #29323c,
+    #485563
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #29323c,
+    #485563
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding-top: 70px;
+  float: left;
+  width: 25%;
+}
+.sol a {
+  color: white;
+  display: block;
+  font-size: 70px;
+  padding-left: 60px;
+  margin-top: 90px;
+}
+.sol a:hover {
+  color: #E44D26; /* fallback for old browsers */
+  color: -webkit-linear-gradient(
+    to left,
+    #F16529,
+    #E44D26
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  color: linear-gradient(
+    to left,
+    #F16529,
+    #E44D26
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.icerik {
+  float: left;
+  text-align: center;
+  width: 75%;
+}
+
+.icerik a {
+  display: block;
+  margin: 5px;
+}
+
+.icerik-ic h1 {
+  margin: 5px;
+  display: block;
+}
+
+#icerik-ic {
+  margin-top: 30%;
+}
+
+.buton {
+  background-color: #34495e;
+  color: white;
+  margin-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 15px !important;
+}
+
+input {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 65px;
+  padding-right: 65px;
+  font-size: 14px !important;
+}
+
+.mesaj {
+  color: orange;
+}
+
+.icerik-ic-dersekle {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#dersler b {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
