@@ -89,7 +89,7 @@ async function girisyap(ogrencino, sifre) {
 app.on("ready", async () => {
   const template = [
     {
-      label: "Filter",
+      label: "LMS Otomatik Ders",
       submenu: [
         {
           label: "Bağış yap",
