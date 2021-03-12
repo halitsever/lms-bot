@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/murathasev/lms-otomatik-ders/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/murathasev/lms-otomatik-ders/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<h1>LMS Otomatik Ders | Canlı Derse Yerinize Katılır <a alt="a++" target="_blank" href="https://www.codefactor.io/repository/github/murathasev/lms-otomatik-ders/issues"><img src="https://img.shields.io/codefactor/grade/github/murathasev/lms-otomatik-ders"></a></h1>
+<img align="right" width="250" height="250" src="https://i.ibb.co/x33Y5Jm/Yeni-Proje.png">
+<p align="left"> 
+Kişisel hayatınızdaki yoğunluktan ötürü canlı derslere katılım sağlayamayan bir öğrenci iseniz, bu yazılımı doğru yükledikten sonra değilsiniz. 
+  <b>LMS Otomatik Ders</b> sizin yerinize canlı derslere katılır, bu sayede sınav notunuzdan eksi almanın önüne geçersiniz.
+</p>
+<h1>Desteklenen platformlar</h1>
+Windows <a href="https://github.com/murathasev/lms-otomatik-ders/releases/tag/0.0.3">(bu dağıtıma bakın)</a><br>
+Mac Os Big Sur+ <a href="https://github.com/murathasev/lms-otomatik-ders/releases/tag/0.0.3">(bu dağıtıma bakın)</a><br>
+Heroku (Sunucu) <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">(bu branch'e bakın)</a><br><br><br><br>
+<h1>Sorumluluk Metni</h1>
+<img align="left" width="300" height="250" src="https://i.ibb.co/s2djTQb/Ekran-Resmi-2021-03-13-00-34-05.png">
+<b>LMS Otomatik Ders</b> projesi eğitim adına daha efektif düşünmek amacıyla yapılmıştır, kullanılmasından dolayı oluşabilecek sorumluluk yine kullanıcının kendisindedir.
+Herhangi bir rahatsızlık duyulması halinde dunyayuvarlakmuratbabandir@gmail.com adresinden iletişime geçerseniz yayından kaldırılacaktır.
+Eğer projeyi sunucu üzerinde kullanacaksanız verilerinizin güvenliği tamamiyle size aittir, masaüstü uygulamaları da dahil. <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">Heroku</a> üzerinden 7/24 otomatik hostlamak için linkteki branch'e bakın.
