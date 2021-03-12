@@ -2,14 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   border-radius: 3px;
-  border: none 0px;
+  border: none;
   font-family: "Roboto", sans-serif;
-  margin: 0px;
 }
 body {
   background-color: #ecf0f1;
   color: #34495e;
-  padding: 0px;
   border-radius: 10px;
 }
 .sol {
