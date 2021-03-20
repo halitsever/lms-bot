@@ -262,9 +262,6 @@ app.on("ready", async () => {
   });
 
   ipcMain.on("istek::geridonus", () => {
-    Hesap.oturumukapat().catch(err => {
-      console.log("Oturum zaten açılmamış. " + err);
-    });
     BrowserWindow.getFocusedWindow().hide();
     win.show();
   });
