@@ -1,4 +1,4 @@
-<h1>LMS Otomatik Ders | Canlı Derse Yerinize Katılır <a alt="a++" target="_blank" href="https://www.codefactor.io/repository/github/murathasev/lms-otomatik-ders/issues"><img src="https://img.shields.io/codefactor/grade/github/murathasev/lms-otomatik-ders"></a></h1>
+<h1>LMS Otomatik Ders | Canlı Derse Yerinize Katılır <a alt="a++" target="_blank" href="https://www.codefactor.io/repository/github/halitsever/lms-otomatik-ders/issues"><img src="https://img.shields.io/codefactor/grade/github/halitsever/lms-otomatik-ders"></a></h1>
 <img align="right" width="250" height="250" src="https://i.ibb.co/x33Y5Jm/Yeni-Proje.png">
 <p align="left"> 
 Kişisel hayatınızdaki yoğunluktan ötürü canlı derslere katılım sağlayamayan bir öğrenci iseniz, bu yazılımı doğru yükledikten sonra değilsiniz. 
