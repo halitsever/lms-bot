@@ -46,16 +46,14 @@ module.exports = class Giris {
     console.log("Giriş denemesi yapılıyor...");
     const db = await sqlite3(dbPath);
     db.bilgi.find({ _orderBy: "id" }).then(ogrenci => {
-      console.log("fc dis: " + ogrenci);
       giris(ogrenci);
 
       async function giris(ogrenciveri) {
-        console.log("fc ic: " + ogrenciveri);
         try {
           var uye = new Hesap(
             ogrenciveri[0].ogrencino,
             ogrenciveri[0].sifre,
-            "Test"
+            "null"
           );
 
           await uye.oturumac().finally(async () => {
