@@ -1,3 +1,7 @@
+<a href="#">English Documentation</a>
+<a href="#turkish">Türkçe Dökümantasyon</a>
+
+<p id="turkish">
 <h1>LMS Otomatik Ders | Canlı Derse Yerinize Katılır <a alt="a++" target="_blank" href="https://www.codefactor.io/repository/github/halitsever/lms-otomatik-ders/issues"><img src="https://img.shields.io/codefactor/grade/github/halitsever/lms-otomatik-ders"></a></h1>
 <img align="right" width="250" height="250" src="https://i.ibb.co/x33Y5Jm/Yeni-Proje.png">
 <p align="left"> 
@@ -23,4 +27,4 @@ Bu ekrana üniversitenizin sitesinin lms adresini girin, yani şu şekilde: lms.
 Ardından giriş bilgilerinizi girerek lms otomatik dersi kullanıma başlayabilirsiniz.
 0.0.5 sürümü ile gelecek olan chatbot desteği ile yakında olabileceğinden daha gerçekçi bir 'sahte öğrenci' deneyimi yaşatmayı hedefliyoruz.
 Peki ya, güvenilir midir? Evet, açık kaynaklı olması nedeniyle güvenilir diyebiliriz. Geliştirmeye destek olmak istediğinizde pull request atmaktan çekinmeyiniz.
-
+</p>
