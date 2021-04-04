@@ -5,7 +5,7 @@ Kişisel hayatınızdaki yoğunluktan ötürü canlı derslere katılım sağlay
   <b>LMS Otomatik Ders</b> sizin yerinize canlı derslere katılır, bu sayede sınav notunuzdan eksi almanın önüne geçersiniz.
 </p>
 <h1>Desteklenen platformlar</h1>
-Windows <a href="https://github.com/murathasev/lms-otomatik-ders/releases/tag/0.0.3">(bu dağıtıma bakın)</a><br>
+Windows <a href="https://github.com/murathasev/lms-otomatik-ders/releases/">(bu dağıtıma bakın) (her zaman son sürüm)</a><br>
 Mac Os Big Sur+ <a href="https://github.com/murathasev/lms-otomatik-ders/releases/tag/0.0.3">(bu dağıtıma bakın) (0.0.3'ten sonrasını desteklemiyor!)</a><br>
 Heroku (Sunucu) <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">(bu branch'e bakın)</a><br><br><br><br>
 <h1>Sorumluluk Metni</h1>
