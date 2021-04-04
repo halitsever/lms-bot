@@ -3,15 +3,13 @@
 * {
   border: none;
   font-family: "Roboto", sans-serif;
-padding:0; margin:0;
-border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
 }
-
-
 
 .sol {
   height: 490px;
-
 
   padding-top: 60px;
   float: left;
@@ -25,41 +23,40 @@ border-radius: 10px;
   margin-top: 90px;
 }
 .sol a:hover {
-color:#2ecc71;
+  color: #2ecc71;
 }
 .icerik {
   float: left;
   text-align: center;
   width: 75%;
-  color:white;
+  color: white;
 }
 
 .icerik a {
   display: block;
   margin: 5px;
-  color:white;
+  color: white;
 }
 a {
-  text-decoration:none;
-  color:white;
+  text-decoration: none;
+  color: white;
 }
 #logo {
-  color:white;
-  margin-top:25px;
-  display:block;
-  margin-left:40px;
+  color: white;
+  margin-top: 25px;
+  display: block;
+  margin-left: 40px;
   -webkit-app-region: drag;
 }
 
 #logo:hover {
- 
   color: #2ecc71;
 }
 
 #icerik-ic {
   margin-top: 30%;
-  padding-right:50px;
-  color:white;
+  padding-right: 50px;
+  color: white;
 }
 
 .buton {
@@ -97,45 +94,40 @@ input {
 p {
   padding-left: 20px;
   padding-right: 20px;
-  color:white;
+  color: white;
 }
-
 
 .kapat {
-  background-color:red;
-  border-radius:500px;
+  background-color: red;
+  border-radius: 500px;
   height: 20px;
-  width:20px;
-  margin-left:95%;
-  position:absolute;
-  margin-top:-50px;
-
+  width: 20px;
+  margin-left: 95%;
+  position: absolute;
+  margin-top: -50px;
 }
-
 
 .kapat:hover {
-  background: #f12711; 
-background: -webkit-linear-gradient(to right, #f5af19, #f12711);  
-background: linear-gradient(to right, #f5af19, #f12711); 
-
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
 }
 
-
 #kapsayici {
-  background: rgba( 37, 37, 37, 0.85 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5.5px );
-  -webkit-backdrop-filter: blur( 5.5px );
+  background: rgba(37, 37, 37, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  height:625px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: 625px;
 }
 
 .log-kutusu {
   overflow-y: scroll;
-  height:200px;
-  width:70%;
-  resize: none; 
-  color:blueviolet;
-  text-align:center;
+  height: 200px;
+  width: 70%;
+  resize: none;
+  color: blueviolet;
+  text-align: center;
 }
