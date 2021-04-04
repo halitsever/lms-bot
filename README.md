@@ -15,8 +15,10 @@ Herhangi bir rahatsızlık duyulması halinde dunyayuvarlakmuratbabandir@gmail.c
 Eğer projeyi sunucu üzerinde kullanacaksanız verilerinizin güvenliği tamamiyle size aittir, masaüstü uygulamaları da dahil. <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">Heroku</a> üzerinden 7/24 otomatik hostlamak için linkteki branch'e bakın.
 <h1>Nedir ve nasıl kullanılır?</h1>
 <b>LMS Otomatik Ders</b> sizin yerinize online derslere katılım sağlar ve sahte bir öğrenci profili karşı tarafta gözükür. Kaydettiğiniz dersleri anlık çevrim içi takip ederek sizin yerinize derslerde aktif gözükür.
-Kullanıma başlamak için ilk olarak dersleri eklemeniz gerekmektedir, ayarlar ikonuna basıp ardından ders ekle seçeneğine tıklatın ve tüm dersleri sistemdekine oranla girin. Ders adlarını bir kere girmeniz yeterlidir, program dosyalarındaki sql dosyasına bu veriler işlenir. 
-Ardından bir geri gelerek aynı menüden üniversite linkini girmeniz gerekir <p align="right"><img src="https://i.ibb.co/cFT9cTb/Ekran-Al-nt-s.png"></p>
+Kullanıma başlamak için ilk olarak setup dosyasını çalıştırın yaklaşık 1 dakika gibi bir sürede kurulumu yapacaktır, hdd kullanıyorsanız bu süre daha uzun olabilir.
+<img src="https://i.ibb.co/njszGjW/Ekran-Al-nt-s.png">
+Sistemin kontrol edebilmesi için ders programınızı programa eklemeniz gerekmektedir, ayarlar ikonuna basıp ardından ders ekle seçeneğine tıklatın ve tüm dersleri sistemdekine oranla girin. Ders adlarını bir kere girmeniz yeterlidir, program dosyalarındaki sql dosyasına bu veriler işlenir. 
+Ardından bir geri gelerek aynı menüden üniversite linkini girmeniz gerekir <img src="https://i.ibb.co/cFT9cTb/Ekran-Al-nt-s.png">
 Bu ekrana üniversitenizin sitesinin lms adresini girin, yani şu şekilde: lms.unim.com
 Ardından giriş bilgilerinizi girerek lms otomatik dersi kullanıma başlayabilirsiniz.
 0.0.5 sürümü ile gelecek olan chatbot desteği ile yakında olabileceğinden daha gerçekçi bir 'sahte öğrenci' deneyimi yaşatmayı hedefliyoruz.
