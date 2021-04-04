@@ -6,13 +6,8 @@ const Hesap = require("../uyeislemleri");
 const zamanlama = require("util").promisify(setTimeout);
 const sqlite3 = require("sqlite-y");
 const {
-  app,
   BrowserWindow,
-  ipcMain,
-  remote,
-  webContents,
-  shell,
-  ipcRenderer
+  webContents
 } = require("electron");
 const { Browser } = require("selenium-webdriver");
 /*  

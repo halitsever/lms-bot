@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
-  <body>
+  <body><div id="kapsayici">
+    <a href="#"><h1 id="logo">lms otomatik ders</h1></a>
+    <a href="#" onclick="kapat()"><div class="kapat"></div></a>
+    <div style="clear:right;"></div>
     <div class="sol">
       <a href="#"><i class="fas fa-play-circle"></i></a>
       <a onclick="geridon()" href="#">
@@ -14,14 +22,17 @@
       </a>
     </div>
     <div class="icerik">
-      <div class="icerik-ic" id="icerik-ic">
-        <h1>LMS Otomatik Ders</h1>
-        <b>Giriş yapılan öğrenci NO: </b>
-        <p class="adi">Bir şeyler ters gitti...</p>
-        <b>Bağlantı durumu:</b><a class="mesaj">● Giriş yapılıyor</a>
+      <div class="icerik-ic-dersekle" id="icerik-ic-dersekle">
+      <h1>LMS Otomatik Ders</h1>
+      <b>Giriş yapılan öğrenci NO: </b>
+      <p class="adi">Bir şeyler ters gitti...</p>
+      <b>Bağlantı durumu:</b><a class="mesaj">● Giriş yapılıyor</a></div><br><br>
+      <h4>Ayrıntılar:</h4>
+      <textarea class="log-kutusu" readonly></textarea>
       </div>
     </div>
     <div style="clear:left;"></div>
+  </div>
+    <script src="./script/main.js"></script>
   </body>
-  <script src="./script/main.js"></script>
 </html>

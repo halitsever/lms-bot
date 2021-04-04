@@ -12,24 +12,33 @@ const {
   dialog,
   Menu
 } = require("electron");
-const { Ders, Aplikasyon, Hesap, Giriskontrol } = require("./lib/");
+const { Ders, Hesap, Giriskontrol } = require("./lib/");
 const sqlite3 = require("sqlite-y");
 const path = require("path");
 const url = require("url");
+const { Browser } = require("selenium-webdriver");
 const dbPath = path.join(__dirname, "bilgiler.sqlite");
+//var electronVibrancy = require('electron-vibrancy-fixforlatest');
+
 /*  
 ==============================Modül==============================
 */
 
+
+
+if (require('electron-squirrel-startup')) return app.quit();
+
+
 (async function surumkontrol() {
   let fetch = require("node-fetch");
   let pjson = require("../package.json");
-
+  
   fetch(
-    "https://api.github.com/repos/murathasev/lms-otomatik-ders/releases/latest"
+    "https://api.github.com/repos/halitsever/lms-otomatik-ders/releases/latest"
   )
     .then(res => res.json())
     .then(json => {
+      if (json.tag_name === undefined) return; // Muhtemelen ratelimite takıldı ve düzelene kadar o cihazda güncelleme kontrolü yapılamayacak.
       console.log("Program sürümü:");
       console.log(pjson.version);
       console.log("Githubdaki sürüm:");
@@ -55,11 +64,11 @@ const dbPath = path.join(__dirname, "bilgiler.sqlite");
           );
           if (process.platform === "darwin") {
             shell.openExternal(
-              "https://github.com/murathasev/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.dmg"
+              "https://github.com/halitsever/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.dmg"
             );
           } else {
             shell.openExternal(
-              "https://github.com/murathasev/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.exe"
+              "https://github.com/halitsever/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.exe"
             );
           }
         });
@@ -87,44 +96,34 @@ async function girisyap(ogrencino, sifre) {
 }
 
 app.on("ready", async () => {
-  const template = [
-    {
-      label: "LMS Otomatik Ders",
-      submenu: [
-        {
-          label: "Bağış yap",
-          accelerator: "Ctrl+B",
-          click() {
-            shell.openExternal("https://murathalitsever.js.org/bagis.html");
-          }
-        }
-      ]
-    }
-  ];
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  ipcMain.on("istek::log_geldi", ()=>{
+  console.log("tamamdır")
+  });
+  
 
-  const win = new BrowserWindow({
+  var anapencere = new BrowserWindow({
     width: 800,
     title: "LMS Otomatik Ders",
-    height: 600,
-    titleBarStyle: "hiddenInset",
+    height: 628,
+    transparent:true,
+    frame:false,
+    backgroundColor: '#00ffffff',
     webPreferences: {
       preload: path.join(__dirname, "preload.js")
     }
   });
-  win.setResizable(false);
-  win.center();
-
-  win.loadFile(__dirname + "/gui/index.html");
+  anapencere.setResizable(false);
+  anapencere.center()
+  anapencere.loadFile(__dirname + "/gui/index.html");
 
   const db = await sqlite3(dbPath);
 
-  db.bilgi.find({ _orderBy: "id" }).then(records => {
+  db.bilgi.find({ _orderBy: "id" }).then(async records => {
     let id;
     if (typeof records[0].id === undefined) return;
-    let ogrencino = records[0].ogrencino;
-    win.webContents.on("did-finish-load", () => {
-      win.webContents.send("bilgi::kayitligirisbilgileri", ogrencino);
+    let ogrencino = await records[0].ogrencino;
+    anapencere.webContents.on("did-finish-load", () => {
+      anapencere.webContents.send("bilgi::kayitligirisbilgileri", ogrencino);
     });
   });
 
@@ -132,35 +131,31 @@ app.on("ready", async () => {
     const ayarlar = new BrowserWindow({
       width: 800,
       title: "LMS Otomatik Ders",
-      height: 600,
-      titleBarStyle: "hiddenInset",
+      height: 628,
+      transparent:true,
+      frame:false,
+      backgroundColor: '#00ffffff',
       webPreferences: {
-        nodeIntegration: false,
-        contextIsolation: true,
-        enableRemoteModule: false,
         preload: path.join(__dirname, "preload.js")
       }
     });
-    win.hide();
-    ayarlar.setResizable(false);
-
+    anapencere.hide();
+    ayarlar.setResizable(false);  
     ayarlar.loadFile(__dirname + "/gui/ayarlar.html");
     ayarlar.center();
 
     ipcMain.on("istek::dersekle", () => {
       BrowserWindow.getAllWindows()[0].hide();
-
       var dersekle = new BrowserWindow({
         width: 800,
-        title: "LMS Otomatik Ders",
-        height: 600,
-        titleBarStyle: "hiddenInset",
-        webPreferences: {
-          nodeIntegration: false,
-          contextIsolation: true,
-          enableRemoteModule: false,
-          preload: path.join(__dirname, "preload.js")
-        }
+    title: "LMS Otomatik Ders",
+    height: 628,
+    transparent:true,
+    frame:false,
+    backgroundColor: '#00ffffff',
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js")
+    }
       });
       dersekle.setResizable(false);
       dersekle.center();
@@ -218,15 +213,14 @@ app.on("ready", async () => {
       BrowserWindow.getFocusedWindow().hide();
       const uniayarla = new BrowserWindow({
         width: 800,
-        title: "LMS Otomatik Ders",
-        height: 600,
-        titleBarStyle: "hiddenInset",
-        webPreferences: {
-          nodeIntegration: false,
-          contextIsolation: true,
-          enableRemoteModule: false,
-          preload: path.join(__dirname, "preload.js")
-        }
+    title: "LMS Otomatik Ders",
+    height: 628,
+    transparent:true,
+    frame:false,
+    backgroundColor: '#00ffffff',
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js")
+    }
       });
       uniayarla.setResizable(false);
       uniayarla.center();
@@ -262,22 +256,21 @@ app.on("ready", async () => {
   });
 
   ipcMain.on("istek::geridonus", () => {
-    BrowserWindow.getFocusedWindow().hide();
-    win.show();
+    BrowserWindow.getAllWindows()[0].hide();
+    anapencere.show();
   });
 
   ipcMain.on("bilgiler::isim", (err, data) => {
 
-    win.hide();
+    anapencere.hide();
     let girisyapilmis = new BrowserWindow({
       width: 800,
-      title: "LMS Otomatik Ders - Derse Giriş",
-      height: 600,
-      titleBarStyle: "hiddenInset",
+      title: "LMS Otomatik Ders",
+      height: 628,
+      transparent:true,
+      frame:false,
+      backgroundColor: '#00ffffff',
       webPreferences: {
-        nodeIntegration: false,
-        contextIsolation: true,
-        enableRemoteModule: false,
         preload: path.join(__dirname, "preload.js")
       }
     });
@@ -287,7 +280,7 @@ app.on("ready", async () => {
     girisyapilmis.loadFile(__dirname + "/gui/giris.html");
     girisyapilmis.setAlwaysOnTop(true, "screen");
     girisyapilmis.setResizable(false);
-
+    
     try {
       Giriskontrol.girisyap();
     } catch (e) {
@@ -311,4 +304,13 @@ app.on("ready", async () => {
       girisyapilmis.webContents.send("bilgi::girisbilgileri", girisbilgileri);
     });
   });
+
+
+  ipcMain.on("istek::kapat", ()=>{
+  Hesap.oturumukapat().catch(err => {
+  console.log("Oturum zaten açılmamış. " + err);
+  });
+  process.exit();
+  });
+
 });

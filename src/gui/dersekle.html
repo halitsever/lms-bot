@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
-  <body>
+  <body><div id="kapsayici">
+    <a href="#"><h1 id="logo">lms otomatik ders</h1></a>
+    <a href="#" onclick="kapat()"><div class="kapat"></div></a>
+    <div style="clear:right;"></div>
     <div class="sol">
       <a href="#"><i class="fas fa-play-circle"></i></a>
       <a onclick="geridon()" href="#">
@@ -14,20 +17,23 @@
       </a>
     </div>
     <div class="icerik">
+      
       <div class="icerik-ic-dersekle" id="icerik-ic-dersekle">
         <h1>Eklediğiniz tüm dersler:</h1>
-        <button
-          style="font-size:15px; color:green; padding-bottom:20px; padding-top:20px; text-decoration:none;"
-          onclick="dersekle_input()"
+        <a
+          style="font-size:15px; color:#2ecc71; padding-bottom:20px; padding-top:20px; text-decoration:none;"
+          onclick="dersekle_input()" href="#"
         >
           <i class="fas fa-plus"></i>Yeni ders kaydı
-        </button>
+      </a>
         <div id="dersler">
           <b>Ders adı</b> <b>Ders saati</b> <b>Ders günü</b>
         </div>
-      </div>
     </div>
     <div style="clear:left;"></div>
+  </div>
+    <script src="./script/main.js"></script>
   </body>
-  <script src="./script/main.js"></script>
 </html>
+
+

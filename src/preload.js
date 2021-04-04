@@ -1,5 +1,8 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
+
+
+
 contextBridge.exposeInMainWorld("api", {
   send: (channel, data) => {
     let validChannels = [
@@ -14,7 +17,9 @@ contextBridge.exposeInMainWorld("api", {
       "istek::uniayarlagonder",
       "istek::geridonus",
       "bilgiler::isim",
-      "mesaj::girisbilgileri"
+      "mesaj::girisbilgileri",
+      "istek::kapat",
+      "mesaj::log"
     ];
     if (validChannels.includes(channel)) {
       ipcRenderer.send(channel, data);
@@ -28,7 +33,9 @@ contextBridge.exposeInMainWorld("api", {
       "bilgi::kayitligirisbilgileri",
       "veri::tumdersler",
       "mesaj::giris",
-      "bilgi::unisite"
+      "bilgi::unisite",
+      "istek::kapat",
+      "mesaj::log"
     ];
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => func(...args));

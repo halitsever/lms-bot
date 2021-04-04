@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,26 +13,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
-  <body>
+  <body><div id="kapsayici">
+    <div style="clear:right;"></div>
     <div class="sol">
       <a href="#"><i class="fas fa-play-circle"></i></a>
       <a onclick="geridon()" href="#"> <i class="fas fa-undo"></i> </a>
     </div>
     <div class="icerik">
-      <div class="icerik-ic" id="icerik-ic">
-        <h1>LMS Otomatik Ders</h1>
-        <form onsubmit="uniayarlagonder()">
-          <a>Üniversite LMS adresi:</a>
-          <input id="siteadresi" type="text" height="300" />
-          <a
-            >(Örnek:
-            <span style="color:blue">https://lms.guzelunim.com.tr)</span></a
-          >
-          <input id="buton" class="buton" type="submit" value="Giriş yap" />
-        </form>
+      <div class="icerik-ic-dersekle" id="icerik-ic-dersekle">
+      <form onsubmit="uniayarlagonder()">
+        <a>Üniversite LMS adresi:</a>
+        <input id="siteadresi" type="text" height="300" />
+        <a
+          >(Örnek:
+          <span style="color:blue">https://lms.guzelunim.com.tr)</span></a
+        >
+        <input id="buton" class="buton" type="submit" value="Giriş yap" />
+      </form>
+    </div>
       </div>
     </div>
     <div style="clear:left;"></div>
+  </div>
+    <script src="./script/main.js"></script>
   </body>
-  <script src="./script/main.js"></script>
 </html>

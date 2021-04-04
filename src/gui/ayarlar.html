@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
-  <body>
+  <body><div id="kapsayici">
+    <a href="#"><h1 id="logo">lms otomatik ders</h1></a>
+    <a href="#" onclick="kapat()"><div class="kapat"></div></a>
+    <div style="clear:right;"></div>
     <div class="sol">
       <a href="#"><i class="fas fa-play-circle"></i></a>
       <a onclick="geridon()" href="#">
@@ -30,8 +36,10 @@
           value="Ders ekle"
         />
       </div>
+      </div>
     </div>
     <div style="clear:left;"></div>
+  </div>
+    <script src="./script/main.js"></script>
   </body>
-  <script src="./script/main.js"></script>
 </html>

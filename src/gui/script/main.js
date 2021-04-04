@@ -1,6 +1,13 @@
+window.api.receive("mesaj::log", data => {
+  let kayitli_loglar = document.querySelector(".log-kutusu").value;
+  
+  document.querySelector(".log-kutusu").innerHTML = kayitli_loglar + "\n" + data;
+});
+
 window.api.receive("bilgi::girisbilgileri", data => {
   document.querySelector(".adi").innerHTML = data.kullaniciadi;
 });
+
 
 window.api.receive("bilgi::kayitligirisbilgileri", data => {
   document.querySelector("#isim").value = data;
@@ -22,6 +29,11 @@ window.api.receive("veri::tumdersler", data => {
     ')"><i class="fas fa-times-circle"></i></a>';
   document.getElementById("dersler").appendChild(kaldirbutonu);
 });
+
+
+function kapat() {
+  window.api.send("istek::kapat");
+}
 
 function kaldir(dersid) {
   alert("Ders başarıyla kaldırıldı.");

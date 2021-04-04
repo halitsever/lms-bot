@@ -1,7 +1,7 @@
 {
   "name": "lms-otomatik-ders",
   "productName": "LMS Otomatik Ders",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "LMS için otomatik derse belirlediğiniz saat/tarihte yerinize giren program.",
   "main": "src/index.js",
   "scripts": {
@@ -11,21 +11,20 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
-  "keywords": ["lms","lms otomatik ders", "lms otomatik ders gui", "electron"],
+  "keywords": [
+    "lms",
+    "lms otomatik ders",
+    "lms otomatik ders gui",
+    "electron"
+  ],
   "author": "Murat Halit Sever",
   "license": "MIT",
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "darwin.icns"
+        "icon": "win32.ico"
       },
       "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "lms_otomatik"
-          }
-        },
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
@@ -39,15 +38,23 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
         }
       ]
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
+    "@electron-forge/maker-wix": "*",
     "chromedriver": "^89.0.0",
+    "custom-electron-titlebar": "^3.2.6",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-vibrancy-fixforlatest": "^0.2.0",
     "figlet": "^1.5.0",
-    "find-chrome-version": "^2.1.1",
+    "ms-chromium-edge-driver": "^0.4.1",
+    "msedgedriver": "github:nandorszabo/node-msedgedriver",
     "node-fetch": "^2.6.1",
     "selenium-webdriver": "^4.0.0-beta.1",
     "sqlite-y": "git+https://github.com/yeninesilcozumler/sqlite.git"
@@ -58,6 +65,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "12.0.1"
+    "electron": "12.0.1",
+    "electron-wix-msi": "^3.2.0"
   }
 }

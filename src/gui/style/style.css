@@ -1,30 +1,19 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
-  border-radius: 3px;
   border: none;
   font-family: "Roboto", sans-serif;
+padding:0; margin:0;
+border-radius: 10px;
 }
-body {
-  background-color: #ecf0f1;
-  color: #34495e;
-  border-radius: 10px;
-}
-.sol {
-  height: 530px;
-  background: #485563; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #29323c,
-    #485563
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #29323c,
-    #485563
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  padding-top: 70px;
+
+
+.sol {
+  height: 490px;
+
+
+  padding-top: 60px;
   float: left;
   width: 25%;
 }
@@ -32,44 +21,49 @@ body {
   color: white;
   display: block;
   font-size: 70px;
-  padding-left: 60px;
+  padding-left: 50px;
   margin-top: 90px;
 }
 .sol a:hover {
-  color: #E44D26; /* fallback for old browsers */
-  color: -webkit-linear-gradient(
-    to left,
-    #F16529,
-    #E44D26
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(
-    to left,
-    #F16529,
-    #E44D26
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:#2ecc71;
 }
 .icerik {
   float: left;
   text-align: center;
   width: 75%;
+  color:white;
 }
 
 .icerik a {
   display: block;
   margin: 5px;
+  color:white;
+}
+a {
+  text-decoration:none;
+  color:white;
+}
+#logo {
+  color:white;
+  margin-top:25px;
+  display:block;
+  margin-left:40px;
+  -webkit-app-region: drag;
 }
 
-.icerik-ic h1 {
-  margin: 5px;
-  display: block;
+#logo:hover {
+ 
+  color: #2ecc71;
 }
 
 #icerik-ic {
   margin-top: 30%;
+  padding-right:50px;
+  color:white;
 }
 
 .buton {
-  background-color: #34495e;
+  background-color: #2ecc71;
   color: white;
   margin-top: 15px;
   padding-left: 40px;
@@ -103,4 +97,45 @@ input {
 p {
   padding-left: 20px;
   padding-right: 20px;
+  color:white;
+}
+
+
+.kapat {
+  background-color:red;
+  border-radius:500px;
+  height: 20px;
+  width:20px;
+  margin-left:95%;
+  position:absolute;
+  margin-top:-50px;
+
+}
+
+
+.kapat:hover {
+  background: #f12711; 
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  
+background: linear-gradient(to right, #f5af19, #f12711); 
+
+}
+
+
+#kapsayici {
+  background: rgba( 37, 37, 37, 0.85 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5.5px );
+  -webkit-backdrop-filter: blur( 5.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height:625px;
+}
+
+.log-kutusu {
+  overflow-y: scroll;
+  height:200px;
+  width:70%;
+  resize: none; 
+  color:blueviolet;
+  text-align:center;
 }

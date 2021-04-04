@@ -8,6 +8,10 @@ const ayarlar = require("../veri/ayarlar.json");
 const path = require("path");
 const dbPath = path.join(__dirname, "../bilgiler.sqlite");
 const sqlite3 = require("sqlite-y");
+const {
+  BrowserWindow,
+  webContents
+} = require("electron");
 /*  
 =================================Util==================================
 */
@@ -71,7 +75,7 @@ module.exports = class Ders {
       });
     }
     /**
-     * Kullanıcının derse bağlantısından önce saat, gün ve ad kontrolü
+     * Kullanıcının derse bağlantısından önce saat, gün ve ad kontrolü ve clienta loglama
      * @return ders_aktif, void girisyap
      */
     function kontrol() {
@@ -95,13 +99,15 @@ module.exports = class Ders {
 
         db.dersler.find({ _orderBy: "id" }).then(dersler => {
           if (ayarlar.anliklog === true)
-            console.log(
-              `[${saat_toplam}] : [${gunler[gun]}] sunucu ders kontrolü yaptı, sunucu aktif ve kontrol yapmaya devam edecek, aktif ders oturumunda otomatik olarak bağlanacaksınız.`
-            );
+          BrowserWindow.getAllWindows()[0].webContents.send(
+            "mesaj::log",
+ `[${saat_toplam}] : [${gunler[gun]}] sunucu ders kontrolü yaptı, sunucu aktif ve kontrol yapmaya devam edecek, aktif ders oturumunda otomatik olarak bağlanacaksınız.`
+          );
           if (dersler.length === 0)
             throw new Error(
               "Hata! Dersler ve ders saatleri eş değiller, lütfen ayarlar.json dosyanızı kontrol edin."
             );
+            //eski lib için düzeltme.
 
           console.info("Ders kayitlari: ", dersler);
           for (var i = 0; i < dersler.length; i++) {
@@ -109,7 +115,8 @@ module.exports = class Ders {
               if (
                 dersler[i].dersgunu.toLowerCase() === gunler[gun].toLowerCase()
               ) {
-                console.log(
+                BrowserWindow.getAllWindows()[0].webContents.send(
+                  "mesaj::log",
                   `${dersler[i].dersadi} adlı dersinizin başlama saati geldi, sisteme giriş için istek gönderiliyor...`
                 );
                 ders_aktif = dersler[i].dersadi;

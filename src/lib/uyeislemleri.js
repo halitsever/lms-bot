@@ -1,3 +1,4 @@
+
 "use strict";
 /*  
 ==============================Selenium============================
@@ -10,23 +11,13 @@ const {
   Capabilities,
   WebDriver
 } = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
-const path = require("chromedriver");
-const chrome_ayarlari = new chrome.Options();
+const edge = require("selenium-webdriver/edge");
+var path = require('msedgedriver');
+const edge_ayarlari = new edge.Options();
 const dir = require("path");
+edge_ayarlari.addArguments("--lang=tr")
 
-chrome_ayarlari
-  .addArguments("--no-sandbox")
-  .addArguments("--lang=tr")
-  .addArguments("--disable-gpu")
-  .addArguments("--log-level=3")
-  .addArguments("--autoplay-policy=no-user-gesture-required")
-  .addArguments("--headless");
-
-const driver = new Builder()
-  .forBrowser("chrome")
-  .setChromeOptions(chrome_ayarlari)
-  .build();
+const driver = edge.Driver.createSession(edge_ayarlari);
 /*  
 ==============================Selenium==========================
 */
@@ -38,6 +29,10 @@ const zamanlama = require("util").promisify(setTimeout);
 const ayarlar = require("../veri/ayarlar.json");
 const sqlite3 = require("sqlite-y");
 const dbPath = dir.join(__dirname, "../bilgiler.sqlite");
+const {
+  BrowserWindow,
+  webContents
+} = require("electron");
 /*  
 ==============================Util==============================
 */
@@ -55,8 +50,15 @@ module.exports = class Hesap {
    * @return Giriş yapılıp-yapılmadığına konsol çıktısı, hata verirse durdur.
   
   */
+
+  
   async oturumac() {
+    
     try {
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Oturum lms ağına veri gönderildi. Deneme yapılıyor..."
+      );
       const db = await sqlite3(dbPath);
       await db.unisite.find({ _orderBy: "id" }).then(records => {
         driver.get(records[0].unisite);
@@ -65,10 +67,18 @@ module.exports = class Hesap {
       await driver.findElement(By.name("UserName")).sendKeys(this.kullaniciadi);
       await driver.findElement(By.id("btnLoginName")).click();
     } catch (e) {
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Hata alındı duruyor: " + e
+      );
       throw new Error("HATA:" + e);
     } finally {
       await driver.findElement(By.name("Password")).sendKeys(this.sifre);
       await driver.findElement(By.id("btnLoginPass")).click();
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Oturum denemesi sonlandı, sonuçlar getiriliyor..."
+      );
       await console.log(
         `${this.kullaniciadi} numaralı öğrenci no ve ${this.sifre} adlı şifre ile giriş denemesi yapıldı.`
       );
@@ -78,10 +88,18 @@ module.exports = class Hesap {
           "Ayarlar.json dosyasından verilmiş olan kullanıcı adı ve şifre ile giriş yapılıyor..."
         );
         if (baslik.includes("Giriş - ALMS") === true) {
+          BrowserWindow.getAllWindows()[0].webContents.send(
+            "mesaj::log",
+            "Şifre yanlış."
+          );
           throw new Error(
             `${that.kullaniciadi} numaralı öğrenci no veya ${that.sifre} şifresi yanlış! `
           );
         }
+        BrowserWindow.getAllWindows()[0].webContents.send(
+          "mesaj::log",
+          "Giriş başarılı!"
+        );
         console.log(
           `${that.kullaniciadi} numaralı öğrenci no ve ${that.sifre} adlı şifre ile giriş denemesi başarılı şekilde sonuçlandı, ders sayfasına aktarılıyor...`
         );
@@ -99,6 +117,10 @@ module.exports = class Hesap {
   async dersegir() {
     try {
       console.log("Derse giriş sağlanıyor...");
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Ders algılandı, derse giriş yapılıyor..."
+      );
       await driver.wait(
         until.elementLocated(
           By.className(
@@ -109,6 +131,10 @@ module.exports = class Hesap {
       );
 
       await driver.findElement(By.linkText(`${this.dersadi}`)).catch(err => {
+        BrowserWindow.getAllWindows()[0].webContents.send(
+          "mesaj::log",
+          "Derse bağlanılamadı hata raporu: " + err
+        );
         throw new Error(
           "Derse bağlanılamadı, böyle bir ders bulunamadı ayarlar.json üzerinden kontrol edin!\nHata raporu:  " +
             err
@@ -120,6 +146,10 @@ module.exports = class Hesap {
         3000
       );
       await driver.findElement(By.linkText("Başladı")).catch(err => {
+        BrowserWindow.getAllWindows()[0].webContents.send(
+          "mesaj::log",
+          "Ders adı doğru saat veya günde yanlışlık bulundu, çünkü ders başlamamış: " + err
+        );
         throw new Error(
           "Derse bağlanılamadı, ders başlamamış olabilir!\nHata raporu:  " + err
         );
@@ -127,6 +157,10 @@ module.exports = class Hesap {
       await driver.findElement(By.linkText("Başladı")).click();
       await console.log("Ders ile ilgili bağlantı yapılyıor...");
     } catch (e) {
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Hata alındı: " + e
+      );
       throw new Error("HATA:" + e);
     }
   }
@@ -137,6 +171,10 @@ module.exports = class Hesap {
   */
   async oturumukapat() {
     await driver.quit().catch(err => {
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Aktif oturum bulunmuyor, sekmeyi kapatırken bir sorun oluşmuş olabilir. Bu hatanın bir çok nedeni var, issue açmayı unutmayın!."
+      );
       if (err) throw new Error("Aktif bir oturum bulunamadı.");
     });
   }
