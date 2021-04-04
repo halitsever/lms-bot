@@ -24,15 +24,12 @@ const dbPath = path.join(__dirname, "bilgiler.sqlite");
 ==============================Modül==============================
 */
 
-
-
-if (require('electron-squirrel-startup')) return app.quit();
-
+if (require("electron-squirrel-startup")) return app.quit();
 
 (async function surumkontrol() {
   let fetch = require("node-fetch");
   let pjson = require("../package.json");
-  
+
   fetch(
     "https://api.github.com/repos/halitsever/lms-otomatik-ders/releases/latest"
   )
@@ -96,24 +93,23 @@ async function girisyap(ogrencino, sifre) {
 }
 
 app.on("ready", async () => {
-  ipcMain.on("istek::log_geldi", ()=>{
-  console.log("tamamdır")
+  ipcMain.on("istek::log_geldi", () => {
+    console.log("tamamdır");
   });
-  
 
   var anapencere = new BrowserWindow({
     width: 800,
     title: "LMS Otomatik Ders",
     height: 628,
-    transparent:true,
-    frame:false,
-    backgroundColor: '#00ffffff',
+    transparent: true,
+    frame: false,
+    backgroundColor: "#00ffffff",
     webPreferences: {
       preload: path.join(__dirname, "preload.js")
     }
   });
   anapencere.setResizable(false);
-  anapencere.center()
+  anapencere.center();
   anapencere.loadFile(__dirname + "/gui/index.html");
 
   const db = await sqlite3(dbPath);
@@ -132,15 +128,15 @@ app.on("ready", async () => {
       width: 800,
       title: "LMS Otomatik Ders",
       height: 628,
-      transparent:true,
-      frame:false,
-      backgroundColor: '#00ffffff',
+      transparent: true,
+      frame: false,
+      backgroundColor: "#00ffffff",
       webPreferences: {
         preload: path.join(__dirname, "preload.js")
       }
     });
     anapencere.hide();
-    ayarlar.setResizable(false);  
+    ayarlar.setResizable(false);
     ayarlar.loadFile(__dirname + "/gui/ayarlar.html");
     ayarlar.center();
 
@@ -148,14 +144,14 @@ app.on("ready", async () => {
       BrowserWindow.getAllWindows()[0].hide();
       var dersekle = new BrowserWindow({
         width: 800,
-    title: "LMS Otomatik Ders",
-    height: 628,
-    transparent:true,
-    frame:false,
-    backgroundColor: '#00ffffff',
-    webPreferences: {
-      preload: path.join(__dirname, "preload.js")
-    }
+        title: "LMS Otomatik Ders",
+        height: 628,
+        transparent: true,
+        frame: false,
+        backgroundColor: "#00ffffff",
+        webPreferences: {
+          preload: path.join(__dirname, "preload.js")
+        }
       });
       dersekle.setResizable(false);
       dersekle.center();
@@ -201,9 +197,8 @@ app.on("ready", async () => {
                 console.info("set::dersgirisi");
               });
             dersekle.reload();
-            dersekle_input.close();
           } catch (e) {
-            dialog.showMessageBox({message: "Error:" + e});
+            dialog.showMessageBox({ message: "Error:" + e });
           }
         });
       });
@@ -213,14 +208,14 @@ app.on("ready", async () => {
       BrowserWindow.getFocusedWindow().hide();
       const uniayarla = new BrowserWindow({
         width: 800,
-    title: "LMS Otomatik Ders",
-    height: 628,
-    transparent:true,
-    frame:false,
-    backgroundColor: '#00ffffff',
-    webPreferences: {
-      preload: path.join(__dirname, "preload.js")
-    }
+        title: "LMS Otomatik Ders",
+        height: 628,
+        transparent: true,
+        frame: false,
+        backgroundColor: "#00ffffff",
+        webPreferences: {
+          preload: path.join(__dirname, "preload.js")
+        }
       });
       uniayarla.setResizable(false);
       uniayarla.center();
@@ -229,7 +224,6 @@ app.on("ready", async () => {
       db.unisite.find({ _orderBy: "id" }).then(records => {
         uniayarla.reload();
         uniayarla.webContents.on("did-finish-load", () => {
-
           if (typeof records[0].unisite === undefined)
             return console.log("bildiri:ilkgiris");
           uniayarla.send("bilgi::unisite", records[0].unisite);
@@ -239,7 +233,6 @@ app.on("ready", async () => {
   });
 
   ipcMain.on("istek::uniayarlagonder", async (err, data) => {
-
     const db = await sqlite3(dbPath);
 
     db.unisite.find({ _orderBy: "id" }).then(records => {
@@ -261,15 +254,14 @@ app.on("ready", async () => {
   });
 
   ipcMain.on("bilgiler::isim", (err, data) => {
-
     anapencere.hide();
     let girisyapilmis = new BrowserWindow({
       width: 800,
       title: "LMS Otomatik Ders",
       height: 628,
-      transparent:true,
-      frame:false,
-      backgroundColor: '#00ffffff',
+      transparent: true,
+      frame: false,
+      backgroundColor: "#00ffffff",
       webPreferences: {
         preload: path.join(__dirname, "preload.js")
       }
@@ -280,7 +272,7 @@ app.on("ready", async () => {
     girisyapilmis.loadFile(__dirname + "/gui/giris.html");
     girisyapilmis.setAlwaysOnTop(true, "screen");
     girisyapilmis.setResizable(false);
-    
+
     try {
       Giriskontrol.girisyap();
     } catch (e) {
@@ -305,12 +297,10 @@ app.on("ready", async () => {
     });
   });
 
-
-  ipcMain.on("istek::kapat", ()=>{
-  Hesap.oturumukapat().catch(err => {
-  console.log("Oturum zaten açılmamış. " + err);
+  ipcMain.on("istek::kapat", () => {
+    Hesap.oturumukapat().catch(err => {
+      console.log("Oturum zaten açılmamış. " + err);
+    });
+    process.exit();
   });
-  process.exit();
-  });
-
 });
