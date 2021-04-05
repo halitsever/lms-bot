@@ -8,10 +8,7 @@ const ayarlar = require("../veri/ayarlar.json");
 const path = require("path");
 const dbPath = path.join(__dirname, "../bilgiler.sqlite");
 const sqlite3 = require("sqlite-y");
-const {
-  BrowserWindow,
-  webContents
-} = require("electron");
+const { BrowserWindow, webContents } = require("electron");
 /*  
 =================================Util==================================
 */
@@ -53,14 +50,16 @@ module.exports = class Ders {
           await uye
             .dersegir()
             .then(() => {
-              console.log(
+              BrowserWindow.getAllWindows()[0].webContents.send(
+                "mesaj::log",
                 "Derse giriş sağlandı! Aktif oturum: " +
                   ders_aktif +
                   "\nSayfanın açık kalacağı süre: 1 saat, o süreç içerisinde diğer derslerinizde kontrol altında olacak.\n"
               );
             })
             .catch(function(err) {
-              console.log(
+              BrowserWindow.getAllWindows()[0].webContents.send(
+                "mesaj::log",
                 "Derse giriş sağlanamadı, ders saatleri ve ders adını ayarlar.json üzerinden kontrol edin. Dersin başlamamış olabilir veya ertelenmiş olabilir.\nHata raporu:\n" +
                   err
               );
@@ -99,15 +98,15 @@ module.exports = class Ders {
 
         db.dersler.find({ _orderBy: "id" }).then(dersler => {
           if (ayarlar.anliklog === true)
-          BrowserWindow.getAllWindows()[0].webContents.send(
-            "mesaj::log",
- `[${saat_toplam}] : [${gunler[gun]}] sunucu ders kontrolü yaptı, sunucu aktif ve kontrol yapmaya devam edecek, aktif ders oturumunda otomatik olarak bağlanacaksınız.`
-          );
+            BrowserWindow.getAllWindows()[0].webContents.send(
+              "mesaj::log",
+              `[${saat_toplam}] : [${gunler[gun]}] sunucu ders kontrolü yaptı, sunucu aktif ve kontrol yapmaya devam edecek, aktif ders oturumunda otomatik olarak bağlanacaksınız.`
+            );
           if (dersler.length === 0)
             throw new Error(
               "Hata! Dersler ve ders saatleri eş değiller, lütfen ayarlar.json dosyanızı kontrol edin."
             );
-            //eski lib için düzeltme.
+          //eski lib için düzeltme.
 
           console.info("Ders kayitlari: ", dersler);
           for (var i = 0; i < dersler.length; i++) {
