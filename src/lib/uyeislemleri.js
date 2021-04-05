@@ -1,4 +1,3 @@
-
 "use strict";
 /*  
 ==============================Selenium============================
@@ -154,8 +153,12 @@ module.exports = class Hesap {
           "Derse bağlanılamadı, ders başlamamış olabilir!\nHata raporu:  " + err
         );
       });
-      await driver.findElement(By.linkText("Başladı")).click();
+      await driver.findElement(By.partialLinkText("Başladı")).click();
       await console.log("Ders ile ilgili bağlantı yapılyıor...");
+      BrowserWindow.getAllWindows()[0].webContents.send(
+        "mesaj::log",
+        "Ders için bağlantı isteği gerçekleşti aktif derse giriş sağlanıyor..."
+      );
     } catch (e) {
       BrowserWindow.getAllWindows()[0].webContents.send(
         "mesaj::log",
