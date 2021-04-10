@@ -5,12 +5,9 @@ const {
   app,
   BrowserWindow,
   ipcMain,
-  remote,
   webContents,
   shell,
-  ipcRenderer,
-  dialog,
-  Menu
+  dialog
 } = require("electron");
 const { Ders, Hesap, Giriskontrol } = require("./lib/");
 const sqlite3 = require("sqlite-y");
@@ -42,9 +39,12 @@ if (require("electron-squirrel-startup")) return app.quit();
       console.log(json.tag_name);
       if (pjson.version !== json.tag_name) {
         let guncelle = new BrowserWindow({
-          width: 300,
+          width: 500,
           title: "Güncelleme",
-          height: 300,
+          height: 500,
+          frame: false,
+          alwaysOnTop: true,
+
           titleBarStyle: "hiddenInset",
           webPreferences: {
             preload: path.join(__dirname, "preload.js")
@@ -93,10 +93,6 @@ async function girisyap(ogrencino, sifre) {
 }
 
 app.on("ready", async () => {
-  ipcMain.on("istek::log_geldi", () => {
-    console.log("tamamdır");
-  });
-
   var anapencere = new BrowserWindow({
     width: 800,
     title: "LMS Otomatik Ders",
@@ -104,6 +100,7 @@ app.on("ready", async () => {
     transparent: true,
     frame: false,
     backgroundColor: "#00ffffff",
+    icon: __dirname + "/gui/assests/win32.ico",
     webPreferences: {
       preload: path.join(__dirname, "preload.js")
     }
@@ -122,61 +119,36 @@ app.on("ready", async () => {
       anapencere.webContents.send("bilgi::kayitligirisbilgileri", ogrencino);
     });
   });
-
+  var tmp_dersekle;
   ipcMain.on("istek::ayarlar", () => {
-    const ayarlar = new BrowserWindow({
-      width: 800,
-      title: "LMS Otomatik Ders",
-      height: 628,
-      transparent: true,
-      frame: false,
-      backgroundColor: "#00ffffff",
-      webPreferences: {
-        preload: path.join(__dirname, "preload.js")
-      }
-    });
-    anapencere.hide();
-    ayarlar.setResizable(false);
-    ayarlar.loadFile(__dirname + "/gui/ayarlar.html");
-    ayarlar.center();
+    anapencere.loadFile(__dirname + "/gui/ayarlar.html");
 
     ipcMain.on("istek::dersekle", () => {
-      BrowserWindow.getAllWindows()[0].hide();
-      var dersekle = new BrowserWindow({
-        width: 800,
-        title: "LMS Otomatik Ders",
-        height: 628,
-        transparent: true,
-        frame: false,
-        backgroundColor: "#00ffffff",
-        webPreferences: {
-          preload: path.join(__dirname, "preload.js")
-        }
-      });
-      dersekle.setResizable(false);
-      dersekle.center();
-      dersekle.loadFile(__dirname + "/gui/dersekle.html");
-      dersekle.webContents.on("did-finish-load", () => {
-        db.dersler.find({ _orderBy: "id" }).then(records => {
+      anapencere.loadFile(__dirname + "/gui/dersekle.html");
+      anapencere.webContents.on("did-finish-load", () => {
+        db.dersler.find({ _orderBy: "id" }).then(async records => {
           for (var i = 0; records.length > i; i++) {
-            dersekle.webContents.send("veri::tumdersler", records[i]);
+            anapencere.webContents.send("veri::tumdersler", records[i]);
           }
+          anapencere.webContents.send("veri::yuklendi");
         });
         ipcMain.on("istek::derskaldirma", (err, veri) => {
           db.dersler.delete({ id: veri }).then(changeCount => {
             console.info("Total deleted", changeCount);
-            dersekle.reload();
+            anapencere.reload();
           });
         });
       });
+
       ipcMain.on("istek::dersekle_input", () => {
         var dersekle_input = new BrowserWindow({
           width: 400,
           title: "LMS Otomatik Ders",
           height: 400,
           alwaysOnTop: true,
-          parent: dersekle,
+          parent: anapencere,
           titleBarStyle: "hidden",
+          icon: __dirname + "/gui/assests/win32.ico",
           webPreferences: {
             preload: path.join(__dirname, "preload.js")
           }
@@ -186,6 +158,9 @@ app.on("ready", async () => {
         dersekle_input.loadFile(__dirname + "/gui/dersekle_input.html");
 
         ipcMain.on("veri::dersekle_input_verigir", async (err, veri) => {
+          if (tmp_dersekle === veri.dersadi) return;
+
+          tmp_dersekle = veri.dersadi;
           try {
             db.dersler
               .insert({
@@ -196,7 +171,7 @@ app.on("ready", async () => {
               .then(() => {
                 console.info("set::dersgirisi");
               });
-            dersekle.reload();
+            anapencere.reload();
           } catch (e) {
             dialog.showMessageBox({ message: "Error:" + e });
           }
@@ -205,28 +180,13 @@ app.on("ready", async () => {
     });
 
     ipcMain.on("istek::uniayarla", () => {
-      BrowserWindow.getFocusedWindow().hide();
-      const uniayarla = new BrowserWindow({
-        width: 800,
-        title: "LMS Otomatik Ders",
-        height: 628,
-        transparent: true,
-        frame: false,
-        backgroundColor: "#00ffffff",
-        webPreferences: {
-          preload: path.join(__dirname, "preload.js")
-        }
-      });
-      uniayarla.setResizable(false);
-      uniayarla.center();
-      uniayarla.loadFile(__dirname + "/gui/uniayarla.html");
+      anapencere.loadFile(__dirname + "/gui/uniayarla.html");
 
       db.unisite.find({ _orderBy: "id" }).then(records => {
-        uniayarla.reload();
-        uniayarla.webContents.on("did-finish-load", () => {
+        anapencere.webContents.on("did-finish-load", () => {
           if (typeof records[0].unisite === undefined)
             return console.log("bildiri:ilkgiris");
-          uniayarla.send("bilgi::unisite", records[0].unisite);
+          anapencere.send("bilgi::unisite", records[0].unisite);
         });
       });
     });
@@ -249,29 +209,14 @@ app.on("ready", async () => {
   });
 
   ipcMain.on("istek::geridonus", () => {
-    BrowserWindow.getAllWindows()[0].hide();
-    anapencere.show();
+    anapencere.loadFile(__dirname + "/gui/index.html");
   });
 
   ipcMain.on("bilgiler::isim", (err, data) => {
-    anapencere.hide();
-    let girisyapilmis = new BrowserWindow({
-      width: 800,
-      title: "LMS Otomatik Ders",
-      height: 628,
-      transparent: true,
-      frame: false,
-      backgroundColor: "#00ffffff",
-      webPreferences: {
-        preload: path.join(__dirname, "preload.js")
-      }
-    });
     var girisbilgileri = data;
     girisyap(girisbilgileri.kullaniciadi, girisbilgileri.kullanicisifre);
-    girisyapilmis.center();
-    girisyapilmis.loadFile(__dirname + "/gui/giris.html");
-    girisyapilmis.setAlwaysOnTop(true, "screen");
-    girisyapilmis.setResizable(false);
+
+    anapencere.loadFile(__dirname + "/gui/giris.html");
 
     try {
       Giriskontrol.girisyap();
@@ -285,20 +230,20 @@ app.on("ready", async () => {
       Ders.kontrol();
     });
 
-    girisyapilmis.on("closed", () => {
+    anapencere.on("closed", () => {
       console.log("Sekme kapatıldı, webdriver oturumu kapatılıyor...");
       Hesap.oturumukapat().catch(err => {
         console.log("Oturum zaten açılmamış. " + err);
       });
     });
 
-    girisyapilmis.webContents.on("did-finish-load", () => {
-      girisyapilmis.webContents.send("bilgi::girisbilgileri", girisbilgileri);
+    anapencere.webContents.on("did-finish-load", () => {
+      anapencere.webContents.send("bilgi::girisbilgileri", girisbilgileri);
     });
   });
 
-  ipcMain.on("istek::kapat", () => {
-    Hesap.oturumukapat().catch(err => {
+  ipcMain.on("istek::kapat", async () => {
+    await Hesap.oturumukapat().catch(err => {
       console.log("Oturum zaten açılmamış. " + err);
     });
     process.exit();

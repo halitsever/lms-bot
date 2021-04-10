@@ -144,6 +144,7 @@ module.exports = class Hesap {
         until.elementLocated(By.className("page-content")),
         3000
       );
+      await zamanlama(3000);
       await driver.findElement(By.linkText("Başladı")).catch(err => {
         BrowserWindow.getAllWindows()[0].webContents.send(
           "mesaj::log",

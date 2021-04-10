@@ -19,7 +19,8 @@ contextBridge.exposeInMainWorld("api", {
       "bilgiler::isim",
       "mesaj::girisbilgileri",
       "istek::kapat",
-      "mesaj::log"
+      "mesaj::log",
+      "veri::yuklendi"
     ];
     if (validChannels.includes(channel)) {
       ipcRenderer.send(channel, data);
@@ -35,7 +36,8 @@ contextBridge.exposeInMainWorld("api", {
       "mesaj::giris",
       "bilgi::unisite",
       "istek::kapat",
-      "mesaj::log"
+      "mesaj::log",
+      "veri::yuklendi"
     ];
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => func(...args));
