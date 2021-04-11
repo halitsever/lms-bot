@@ -20,8 +20,7 @@ Herhangi bir rahatsızlık duyulması halinde dunyayuvarlakmuratbabandir@gmail.c
 Eğer projeyi sunucu üzerinde kullanacaksanız verilerinizin güvenliği tamamiyle size aittir, masaüstü uygulamaları da dahil. <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">Heroku</a> üzerinden 7/24 otomatik hostlamak için linkteki branch'e bakın.
 <h1>Nedir ve nasıl kullanılır?</h1>
 LMS Otomatik Ders sizin yerinize online derslere katılım sağlar ve sahte bir öğrenci profili karşı tarafta gözükür. Kaydettiğiniz dersleri anlık çevrim içi takip ederek sizin yerinize derslerde aktif gözükür.
-<h6>Resimli dökümantasyon</h6>
-Ondan önce bu linkten son sürüm LMS otomatik dersin kurulum dosyasını bilgisayarımıza indiriyoruz:<br>
+Ondan önce bu linkten son sürüm LMS otomatik dersin kurulum dosyasını bilgisayarımıza indiriyoruz:<br><br>
 <p align="center"><a href="https://github.com/halitsever/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.exe" align="center">İNDİRMEK İÇİN TIKLA</a></p><br><br>
 Kullanıma başlamak için ilk olarak setup dosyasını çalıştırın yaklaşık 1 dakika gibi bir sürede kurulumu yapacaktır, hdd kullanıyorsanız bu süre daha uzun olabilir.
 
