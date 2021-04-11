@@ -21,8 +21,8 @@ Eğer projeyi sunucu üzerinde kullanacaksanız verilerinizin güvenliği tamami
 <h1>Nedir ve nasıl kullanılır?</h1>
 LMS Otomatik Ders sizin yerinize online derslere katılım sağlar ve sahte bir öğrenci profili karşı tarafta gözükür. Kaydettiğiniz dersleri anlık çevrim içi takip ederek sizin yerinize derslerde aktif gözükür.
 <h6>Resimli dökümantasyon</h6>
-Ondan önce bu linkten son sürüm LMS otomatik dersin kurulum dosyasını bilgisayarımıza indiriyoruz:<br><br>
-<a href="https://github.com/halitsever/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.exe">İNDİRMEK İÇİN TIKLA</a>
+Ondan önce bu linkten son sürüm LMS otomatik dersin kurulum dosyasını bilgisayarımıza indiriyoruz:<br>
+<p align="center"><a href="https://github.com/halitsever/lms-otomatik-ders/releases/latest/download/Lmsotomatikders.exe" align="center">İNDİRMEK İÇİN TIKLA</a></p><br><br>
 Kullanıma başlamak için ilk olarak setup dosyasını çalıştırın yaklaşık 1 dakika gibi bir sürede kurulumu yapacaktır, hdd kullanıyorsanız bu süre daha uzun olabilir.
 
 <p align="center">
