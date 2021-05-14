@@ -1,6 +1,3 @@
-/*
-==============================Modül==============================
-*/
 const {
   app,
   BrowserWindow,
@@ -15,11 +12,8 @@ const path = require("path");
 const url = require("url");
 const { Browser } = require("selenium-webdriver");
 const dbPath = path.join(__dirname, "bilgiler.sqlite");
-//var electronVibrancy = require('electron-vibrancy-fixforlatest');
 
-/*  
-==============================Modül==============================
-*/
+
 
 if (require("electron-squirrel-startup")) return app.quit();
 
