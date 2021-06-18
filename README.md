@@ -16,7 +16,7 @@ Heroku (Sunucu) <a href="https://github.com/murathasev/lms-otomatik-ders/tree/li
 <h1>Sorumluluk Metni</h1>
 <img align="left" width="300" height="250" src="https://i.ibb.co/JjVvtMK/Yeni-Proje-2.png">
 <b>LMS Otomatik Ders</b> projesi eğitim adına daha efektif düşünmek amacıyla yapılmıştır, kullanılmasından dolayı oluşabilecek sorumluluk yine kullanıcının kendisindedir.
-Herhangi bir rahatsızlık duyulması halinde dunyayuvarlakmuratbabandir@gmail.com adresinden iletişime geçerseniz yayından kaldırılacaktır.
+Herhangi bir rahatsızlık duyulması halinde halitsever@protonmail.com adresinden iletişime geçerseniz yayından kaldırılacaktır.
 Eğer projeyi sunucu üzerinde kullanacaksanız verilerinizin güvenliği tamamiyle size aittir, masaüstü uygulamaları da dahil. <a href="https://github.com/murathasev/lms-otomatik-ders/tree/lib">Heroku</a> üzerinden 7/24 otomatik hostlamak için linkteki branch'e bakın.
 <h1>Nedir ve nasıl kullanılır?</h1>
 LMS Otomatik Ders sizin yerinize online derslere katılım sağlar ve sahte bir öğrenci profili karşı tarafta gözükür. Kaydettiğiniz dersleri anlık çevrim içi takip ederek sizin yerinize derslerde aktif gözükür.
